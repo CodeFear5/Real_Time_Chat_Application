@@ -18,6 +18,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// ✅ Public test route
+app.get("/api/hello", (req, res) => {
+  res.status(200).send("Hello, server is running");
+});
+
 app.use(VerifyToken);
 
 const PORT = process.env.PORT || 8080;
